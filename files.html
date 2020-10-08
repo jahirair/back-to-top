@@ -1,1 +1,58 @@
+//html
+<section> 
+	  <div id="back-top" style="display: block;"><!-- scroll top button -->
+			<a href="#top"><span>Back to Top</span></a>
+		</div>	
+	  </section>
+//css
+#back-top {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+}
 
+#back-top a:hover span {
+    opacity: 50%;
+    background-color: #fff;
+}
+
+#back-top span {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-bottom: 7px;
+    background: #ddd url(../img/top.png) no-repeat center center;
+    text-indent: -999999px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+}
+
+//activation
+
+<script> 
+// cache scroll to top button
+			var b = $('#back-top');
+			// Hide scroll top button
+			b.hide();
+			// FadeIn or FadeOut scroll to top button on scroll
+			$(window).on('scroll', function(){
+				// if you scroll more then 300px then fadein goto top button
+				if ($(this).scrollTop() > 300) {
+					b.fadeIn();
+				// otherwise fadeout button
+				} else {
+					b.fadeOut();
+				}
+			});
+			// Animated smooth go to top
+			b.on('click', function(){
+				$('html,body').animate({
+					scrollTop: 0
+				}, 500 );
+				return false;
+			});
+</script>
